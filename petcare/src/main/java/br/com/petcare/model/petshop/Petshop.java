@@ -29,22 +29,22 @@ public class Petshop {
     @Column(name = "NM_MERCADO", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "NR_CEP", length = 8)
+    @Column(name = "NR_CEP", length = 8, nullable = false)
     private String cep;
 
     @Column(name = "DS_PROMO", nullable = false, length = 10)
     @Enumerated(EnumType.STRING)
     private DataPromocao promo; //Informa o dia em que há promoções
 
-    @Column(name = "DT_ABERTURA", nullable = false)
+    @Column(name = "DT_ABERTURA")
     @Temporal(value=TemporalType.TIME)
     private LocalTime horarioAbertura;
 
-    @Column(name = "DT_FECHAMENTO", nullable = false)
+    @Column(name = "DT_FECHAMENTO")
     @Temporal(value=TemporalType.TIME)
     private LocalTime horarioFechamento;
 
-    @Column(name = "BOOL_ESTACIONAMENTO", nullable = false)
+    @Column(name = "BOOL_ESTACIONAMENTO")
     private Boolean possuiEstacionamento; //Informa se o mercado possui estacionamento para os clientes@
 
     public Petshop(CadastroPetshop pet){
