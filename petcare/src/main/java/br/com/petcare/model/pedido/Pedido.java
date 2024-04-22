@@ -1,7 +1,9 @@
 package br.com.petcare.model.pedido;
 
+import br.com.petcare.dto.nfe.DetalhesNfe;
 import br.com.petcare.dto.pedido.AtualizacaoPedido;
 import br.com.petcare.dto.pedido.CadastroPedido;
+import br.com.petcare.model.nfe.Nfe;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +38,9 @@ public class Pedido {
 
     @Column(name = "DT_PEDIDO", nullable = false)
     private LocalDate dataPedido;
+
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private DetalhesNfe nfe;
 
 
     public Pedido(CadastroPedido pedido){

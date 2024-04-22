@@ -27,10 +27,10 @@ public class Fornecedor {
     @Column(name = "NM_FORNECEDOR", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "DS_EMAIL", nullable = false, length = 50)
+    @Column(name = "DS_EMAIL", length = 50)
     private String email;
 
-    @Column(name = "NR_TELEFONE", nullable = false, length = 12)
+    @Column(name = "NR_TELEFONE", length = 12)
     private String telefone;
 
     public Fornecedor(CadastroFornecedor fornecedor){

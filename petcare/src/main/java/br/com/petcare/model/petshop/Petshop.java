@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter @Setter
@@ -23,10 +21,10 @@ public class Petshop {
 
     @Id
     @GeneratedValue
-    @Column(name = "CD_MERCADO")
+    @Column(name = "CD_PETSHOP")
     private Long codigo;
 
-    @Column(name = "NM_MERCADO", nullable = false, length = 100)
+    @Column(name = "NM_PETSHOP", nullable = false, length = 100)
     private String nome;
 
     @Column(name = "NR_CEP", length = 8, nullable = false)

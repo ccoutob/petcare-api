@@ -30,7 +30,7 @@ public class Cliente {
     @Column(name = "NR_TELEFONE", length = 12, unique = true)
     private String telefone;
 
-    @Column(name = "DS_EMAIL", length = 100)
+    @Column(name = "DS_EMAIL", length = 50)
     private String email;
 
     public Cliente(CadastroCliente cliente){
