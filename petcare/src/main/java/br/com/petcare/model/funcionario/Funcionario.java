@@ -3,6 +3,7 @@ package br.com.petcare.model.funcionario;
 
 import br.com.petcare.dto.funcionario.AtualizacaoFuncionario;
 import br.com.petcare.dto.funcionario.CadastroFuncionario;
+import br.com.petcare.model.petshop.Petshop;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,10 @@ public class Funcionario {
 
     @Column(name = "DT_ADMISSAO", nullable = false)
     private LocalDate dataAdmissao;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_PETSHOP", nullable = false)
+    private Petshop petshop;
 
     public Funcionario(CadastroFuncionario funcionario){
         nome = funcionario.nome();

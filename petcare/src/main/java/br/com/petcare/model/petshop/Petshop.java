@@ -2,6 +2,10 @@ package br.com.petcare.model.petshop;
 
 import br.com.petcare.dto.petshop.AtualizacaoPetshop;
 import br.com.petcare.dto.petshop.CadastroPetshop;
+import br.com.petcare.model.cliente.Cliente;
+import br.com.petcare.model.fornecedor.Fornecedor;
+import br.com.petcare.model.funcionario.Funcionario;
+import br.com.petcare.model.pedido.Pedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +14,7 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalTime;
+import java.util.List;
 
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
@@ -44,6 +49,18 @@ public class Petshop {
 
     @Column(name = "BOOL_ESTACIONAMENTO")
     private Boolean possuiEstacionamento; //Informa se o mercado possui estacionamento para os clientes@
+
+    @OneToMany(mappedBy = "petshop")
+    private List<Fornecedor> fornecedores;
+
+    @OneToMany(mappedBy = "petshop")
+    private List<Pedido> pedidos;
+
+    @OneToMany(mappedBy = "petshop")
+    private List<Cliente> clientes;
+
+    @OneToMany(mappedBy = "petshop")
+    private List<Funcionario> funcionarios;
 
     public Petshop(CadastroPetshop pet){
         nome = pet.nome();

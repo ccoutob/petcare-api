@@ -2,6 +2,7 @@ package br.com.petcare.model.fornecedor;
 
 import br.com.petcare.dto.fornecedor.AtualizacaoFornecedor;
 import br.com.petcare.dto.fornecedor.CadastroFornecedor;
+import br.com.petcare.model.petshop.Petshop;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +33,10 @@ public class Fornecedor {
 
     @Column(name = "NR_TELEFONE", length = 12)
     private String telefone;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_PETSHOP", nullable = false)
+    private Petshop petshop;
 
     public Fornecedor(CadastroFornecedor fornecedor){
         nome = fornecedor.nome();

@@ -2,12 +2,16 @@ package br.com.petcare.model.cliente;
 
 import br.com.petcare.dto.cliente.AtualizacaoCliente;
 import br.com.petcare.dto.cliente.CadastroCliente;
+import br.com.petcare.model.petshop.Petshop;
+import br.com.petcare.model.produto.Produto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +36,16 @@ public class Cliente {
 
     @Column(name = "DS_EMAIL", length = 50)
     private String email;
+
+    @ManyToMany
+    @JoinTable(name="TB_PRODUTO_CLIENTE",
+            joinColumns = @JoinColumn(name="CD_CLIENTE"),
+            inverseJoinColumns = @JoinColumn(name="CD_PRODUTO"))
+    private List<Produto> produtos;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_PETSHOP", nullable = false)
+    private Petshop petshop;
 
     public Cliente(CadastroCliente cliente){
         nome = cliente.nome();

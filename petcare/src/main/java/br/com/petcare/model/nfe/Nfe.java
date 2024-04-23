@@ -20,16 +20,16 @@ public class Nfe {
 
     @Id
     @GeneratedValue
-    @Column(name = "cd_nfe")
+    @Column(name = "CD_NFE")
     private Long codigo;
 
-    @Column(name = "nr_cnpj", length = 14, nullable = false)
+    @Column(name = "NR_CNPJ", length = 14, nullable = false)
     private String cnpj;
 
-    @Column(name = "vl_total", nullable = false)
+    @Column(name = "VL_TOTAL", nullable = false)
     private Double valorTotal;
 
-    @Column(name = "qtd_produtos", nullable = false)
+    @Column(name = "QTD_PRODUTOS", nullable = false)
     private Integer quantidade;
 
     @OneToOne

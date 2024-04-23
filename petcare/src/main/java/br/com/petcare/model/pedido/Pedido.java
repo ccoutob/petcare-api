@@ -4,6 +4,7 @@ import br.com.petcare.dto.nfe.DetalhesNfe;
 import br.com.petcare.dto.pedido.AtualizacaoPedido;
 import br.com.petcare.dto.pedido.CadastroPedido;
 import br.com.petcare.model.nfe.Nfe;
+import br.com.petcare.model.petshop.Petshop;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,7 +41,11 @@ public class Pedido {
     private LocalDate dataPedido;
 
     @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
-    private DetalhesNfe nfe;
+    private DetalhesNfe detalhesNfe;
+
+    @ManyToOne
+    @JoinColumn(name = "CD_PETSHOP", nullable = false)
+    private Petshop petshop;
 
 
     public Pedido(CadastroPedido pedido){
