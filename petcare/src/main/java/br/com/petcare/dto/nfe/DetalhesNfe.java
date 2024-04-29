@@ -11,4 +11,5 @@ public record DetalhesNfe(Long codigo,
         this(nfe.getCodigo(), nfe.getCnpj(),
         nfe.getValorTotal(), nfe.getQuantidade());
     }
+
 }

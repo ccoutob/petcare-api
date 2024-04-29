@@ -1,15 +1,14 @@
 package br.com.petcare.model.pedido;
 
-import br.com.petcare.dto.nfe.DetalhesNfe;
 import br.com.petcare.dto.pedido.AtualizacaoPedido;
 import br.com.petcare.dto.pedido.CadastroPedido;
 import br.com.petcare.model.nfe.Nfe;
 import br.com.petcare.model.petshop.Petshop;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
@@ -18,7 +17,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 
 @Entity
 @Table(name = "TB_PEDIDO")
@@ -34,33 +32,31 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private TipoStatus status;
 
-    @Column(name = "NR_TOTAL", nullable = false)
-    private Integer total;
-
     @Column(name = "DT_PEDIDO", nullable = false)
     private LocalDate dataPedido;
 
     @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
-    private DetalhesNfe detalhesNfe;
+    private Nfe nfe;
 
     @ManyToOne
-    @JoinColumn(name = "CD_PETSHOP", nullable = false)
+    @JoinColumn(name = "CD_PETSHOP")
     private Petshop petshop;
 
-
-    public Pedido(CadastroPedido pedido){
-        status = pedido.status();
-        total = pedido.total();
-        dataPedido = pedido.dataPedido();
+    public Pedido(CadastroPedido dto){
+        status = dto.status();
+        dataPedido = dto.dataPedido();
+        nfe = new Nfe(dto);
+        nfe.setPedido(this);
     }
-
-    public void atualizarDados(AtualizacaoPedido atualizacao){
-        if(atualizacao.status() != null)
-            status = atualizacao.status();
-        if(atualizacao.total() != null)
-            total = atualizacao.total();
-        if(atualizacao.dataPedido() != null)
-            dataPedido = atualizacao.dataPedido();
+    public void atualizar(AtualizacaoPedido auto){
+        if(auto.status() != null){
+            this.status = auto.status();
+        }
+        if (auto.valorTotal() != null){
+            this.nfe.setValorTotal(auto.valorTotal());
+        }
+        if (auto.quantidade() != null){
+            this.nfe.setQuantidade(auto.quantidade());
+        }
     }
-
 }

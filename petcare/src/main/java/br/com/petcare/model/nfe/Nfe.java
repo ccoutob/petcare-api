@@ -2,6 +2,7 @@ package br.com.petcare.model.nfe;
 
 import br.com.petcare.dto.nfe.DetalhesNfe;
 import br.com.petcare.dto.nfe.CadastroNfe;
+import br.com.petcare.dto.pedido.CadastroPedido;
 import br.com.petcare.model.pedido.Pedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 @Table(name = "TB_NFE")
@@ -36,10 +37,10 @@ public class Nfe {
     @JoinColumn(name = "cd_pedido", nullable = false, unique = true)
     private Pedido pedido;
 
-    public Nfe(CadastroNfe cadastro){
-        cnpj = cadastro.cnpj();
-        valorTotal = cadastro.valorTotal();
-        quantidade = cadastro.quantidade();
+    public Nfe(CadastroPedido dto){
+        cnpj = dto.cnpj();
+        valorTotal = dto.valorTotal();
+        quantidade = dto.quantidade();
     }
 
     public Nfe(DetalhesNfe atualizacao){

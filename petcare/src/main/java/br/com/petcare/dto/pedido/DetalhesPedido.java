@@ -5,9 +5,12 @@ import br.com.petcare.model.pedido.TipoStatus;
 
 import java.time.LocalDate;
 
-public record DetalhesPedido(Long id, TipoStatus status, Integer total, LocalDate dataPedido) {
+public record DetalhesPedido(Long id, TipoStatus status, LocalDate dataPedido,
+                             String cnpj, Double valorTotal, Integer quantidade) {
 
     public DetalhesPedido(Pedido pedido){
-        this(pedido.getCodigo(), pedido.getStatus(), pedido.getTotal(), pedido.getDataPedido());
+        this(pedido.getCodigo(), pedido.getStatus(), pedido.getDataPedido(),
+                pedido.getNfe().getCnpj(), pedido.getNfe().getValorTotal(),
+                pedido.getNfe().getQuantidade());
     }
 }
