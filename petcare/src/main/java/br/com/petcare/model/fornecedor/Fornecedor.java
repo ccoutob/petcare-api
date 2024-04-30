@@ -44,6 +44,13 @@ public class Fornecedor {
         telefone = fornecedor.telefone();
     }
 
+    public Fornecedor(CadastroFornecedor dto, Petshop petshop){
+        nome = dto.nome();
+        email = dto.email();
+        telefone = dto.telefone();
+        this.petshop = petshop;
+    }
+
     public void atualizarDados(AtualizacaoFornecedor atualizacao){
         if(atualizacao.nome() != null)
             nome = atualizacao.nome();
