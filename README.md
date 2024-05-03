@@ -1,5 +1,5 @@
 <h1 align="center">
-<br>Petcare 🤖
+<br>Petcare 🐕
 </h1>
 
 <div align="center">
@@ -47,6 +47,7 @@ Observe o diagrama e suas relações abaixo para entender melhor nosso projeto!
 <li> A exceção será lançada caso tentemos realizar a requisição de algum dado que não existe, por exemplo, um id</li>
 </div>
 
+###
 ❗❗ Acesse o arquivo de requisições do postman <a href="https://github.com/ccoutob/Personal-Assist/blob/main/Personal_Assist_Postman_Collection">AQUI</a> ❗❗
 
 ### 🧑🏻‍💻 Autor 
