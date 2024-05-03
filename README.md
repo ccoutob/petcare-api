@@ -19,7 +19,10 @@ Nosso sistema fornece informações sobre o petshop e as entidades que estão as
 Observe o diagrama e suas relações abaixo para entender melhor nosso projeto!
 
 ## 📋  Modelo Relacional das Entidades
-![modelo_relacional](https://github.com/ccoutob/petcare-api/assets/126828978/b1efdafe-b3bf-41c8-bb55-f14f13062fa7)
+![Relational](https://github.com/ccoutob/petcare-api/assets/126828978/edea6bf2-0ae8-42ea-a2f3-69d8bbc5094e)
+
+## 📋  Modelo Lógico das Entidades
+![Logical](https://github.com/ccoutob/petcare-api/assets/126828978/e83e92de-aacb-442a-8d26-bdb1bd99626a)
 
 <div>
 <h1 align="center"> 📦 Pacotes do Projeto </h1>
