@@ -30,7 +30,7 @@ public class Nfe {
     @Column(name = "VL_TOTAL", nullable = false)
     private Double valorTotal;
 
-    @Column(name = "QTD_PRODUTOS", nullable = false)
+    @Column(name = "QTD_PRODUTOS", nullable = false, precision = 9)
     private Integer quantidade;
 
     @OneToOne

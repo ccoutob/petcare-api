@@ -28,10 +28,10 @@ public class Fornecedor {
     @Column(name = "NM_FORNECEDOR", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "DS_EMAIL", length = 50)
+    @Column(name = "DS_EMAIL", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "NR_TELEFONE", length = 12)
+    @Column(name = "NR_TELEFONE", length = 12, nullable = false)
     private String telefone;
 
     @ManyToOne
