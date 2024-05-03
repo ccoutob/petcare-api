@@ -48,6 +48,13 @@ public class Funcionario {
         dataAdmissao = funcionario.dataAdmissao();
     }
 
+    public Funcionario(CadastroFuncionario funcionario, Petshop petshop){
+        nome = funcionario.nome();
+        cargo = funcionario.cargo();
+        dataAdmissao = funcionario.dataAdmissao();
+        this.petshop = petshop;
+    }
+
     public void atualizarDados(AtualizacaoFuncionario atualizacao){
         if(atualizacao.nome() != null)
             nome = atualizacao.nome();

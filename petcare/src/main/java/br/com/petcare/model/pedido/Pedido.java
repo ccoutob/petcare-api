@@ -48,6 +48,15 @@ public class Pedido {
         nfe = new Nfe(dto);
         nfe.setPedido(this);
     }
+
+    public Pedido(CadastroPedido dto, Petshop petshop){
+        status = dto.status();
+        dataPedido = dto.dataPedido();
+        nfe = new Nfe(dto);
+        nfe.setPedido(this);
+        this.petshop = petshop;
+    }
+
     public void atualizar(AtualizacaoPedido auto){
         if(auto.status() != null){
             this.status = auto.status();

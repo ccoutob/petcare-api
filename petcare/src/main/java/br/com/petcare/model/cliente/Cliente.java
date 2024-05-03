@@ -28,7 +28,7 @@ public class Cliente {
     @Column(name = "CD_CLIENTE")
     private Long codigo;
 
-    @Column(name = "NM_CLIENTE", length = 100)
+    @Column(name = "NM_CLIENTE", length = 100, nullable = false)
     private String nome;
 
     @Column(name = "NR_TELEFONE", length = 12, unique = true)
@@ -51,6 +51,13 @@ public class Cliente {
         nome = cliente.nome();
         telefone = cliente.telefone();
         email = cliente.email();
+    }
+
+    public Cliente(CadastroCliente cliente, Petshop petshop){
+        nome = cliente.nome();
+        telefone = cliente.telefone();
+        email = cliente.email();
+        this.petshop = petshop;
     }
 
     public void atualizarDados(AtualizacaoCliente atualizacao){

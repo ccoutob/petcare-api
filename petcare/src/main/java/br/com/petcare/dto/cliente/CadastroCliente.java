@@ -1,4 +1,12 @@
 package br.com.petcare.dto.cliente;
 
-public record CadastroCliente(Long codigo, String nome, String telefone, String email) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record CadastroCliente(@NotBlank @Size(max = 100)
+                              String nome,
+                              @Size(max = 12)
+                              String telefone,
+                              @Size(max = 50)
+                              String email) {
 }

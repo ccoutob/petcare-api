@@ -13,4 +13,5 @@ public record DetalhesPedido(Long id, TipoStatus status, LocalDate dataPedido,
                 pedido.getNfe().getCnpj(), pedido.getNfe().getValorTotal(),
                 pedido.getNfe().getQuantidade());
     }
+
 }
