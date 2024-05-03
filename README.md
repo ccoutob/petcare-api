@@ -21,8 +21,6 @@ Observe o diagrama e suas relações abaixo para entender melhor nosso projeto!
 ## 📋  Modelo Relacional das Entidades
 ![modelo_relacional](https://github.com/ccoutob/petcare-api/assets/126828978/b1efdafe-b3bf-41c8-bb55-f14f13062fa7)
 
-## 📋 Modelo Lógico das Entidades
-
 <div>
 <h1 align="center"> 📦 Pacotes do Projeto </h1>
 
